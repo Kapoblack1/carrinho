@@ -7,6 +7,7 @@ import LoginScreen from '../screens/LoginScreen';
 import CarrinhosScreen from '../screens/CarrinhosSrceen';
 import DetailsCarrinhoScreen from '../screens/DetailsCarrinho';
 import OrderScreen from '../screens/OrderScreen';
+import FeedBackScreen from '../screens/FeedBackScreen';
 
 
 
@@ -16,7 +17,7 @@ export default function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="OrderScreen"
+        initialRouteName="FeedBackScreen"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
@@ -24,7 +25,8 @@ export default function Navigation() {
         <Stack.Screen name="CarrinhosScreen" component={CarrinhosScreen} />
         <Stack.Screen name="DetailsCarrinhoScreen" component={DetailsCarrinhoScreen} />
         <Stack.Screen name="OrderScreen" component={OrderScreen} />
-        
+        <Stack.Screen name="FeedBackScreen" component={FeedBackScreen} />
+  
       </Stack.Navigator>
     </NavigationContainer>
   );
