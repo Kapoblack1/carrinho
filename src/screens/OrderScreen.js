@@ -2,104 +2,104 @@ import React, { useState, useRef } from 'react';
 import { View, Text, TouchableOpacity, Animated, StyleSheet, Dimensions, FlatList, Image, imageSource } from 'react-native';
 import { Upload, Eye } from 'phosphor-react-native';
 const mockData = [
-    {
-        id: '1',
-        title: 'Vem Bem',
-        source: 'Carrinho Shein',
-        items: 5,
-        total: '25000Kz',
-        status: 'ativo',
-        pagamento: false, // Novo campo adicionado
-        image: require('../../assets/imagens/carrinho1.png'),
-      },
-    {
-        id: '2',
-        title: 'Vem Bem',
-        source: 'Carrinho Shein',
-        items: 5,
-        total: '25000Kz',
-        status: 'ativo',
-        pagamento: true,
-        image: require('../../assets/imagens/carrinho2.png'),
-      },
-      {
-        id: '3',
-        title: 'Vem Bem',
-        source: 'Carrinho Shein',
-        items: 5,
-        total: '25000Kz',
-        status: 'ativo',
-        pagamento: false, // Novo campo adicionado
-        image: require('../../assets/imagens/carrinho3.png'),
-      },
-    {
-        id: '4',
-        title: 'Vem Bem',
-        source: 'Carrinho Shein',
-        items: 5,
-        total: '25000Kz',
-        status: 'ativo',
-        pagamento: true,
-        image: require('../../assets/imagens/carrinho4.png'),
-      },
-      {
-        id: '5',
-        title: 'Vem Bem',
-        source: 'Carrinho Shein',
-        items: 5,
-        total: '25000Kz',
-        status: 'ativo',
-        pagamento: false, // Novo campo adicionado
-        image: require('../../assets/imagens/carrinho1.png'),
-      },
-    {
-        id: '6',
-        title: 'Vem Bem',
-        source: 'Carrinho Shein',
-        items: 5,
-        total: '25000Kz',
-        status: 'ativo',
-        pagamento: true,
-        image: require('../../assets/imagens/carrinho2.png'),
-      },
-    // Adicione mais objetos de dados conforme o necessário
-  ];
+  {
+    id: '1',
+    title: 'Vem Bem',
+    source: 'Carrinho Shein',
+    items: 5,
+    total: '25000Kz',
+    status: 'ativo',
+    pagamento: false, // Novo campo adicionado
+    image: require('../../assets/imagens/carrinho1.png'),
+  },
+  {
+    id: '2',
+    title: 'Vem Bem',
+    source: 'Carrinho Shein',
+    items: 5,
+    total: '25000Kz',
+    status: 'ativo',
+    pagamento: true,
+    image: require('../../assets/imagens/carrinho2.png'),
+  },
+  {
+    id: '3',
+    title: 'Vem Bem',
+    source: 'Carrinho Shein',
+    items: 5,
+    total: '25000Kz',
+    status: 'ativo',
+    pagamento: false, // Novo campo adicionado
+    image: require('../../assets/imagens/carrinho3.png'),
+  },
+  {
+    id: '4',
+    title: 'Vem Bem',
+    source: 'Carrinho Shein',
+    items: 5,
+    total: '25000Kz',
+    status: 'ativo',
+    pagamento: true,
+    image: require('../../assets/imagens/carrinho4.png'),
+  },
+  {
+    id: '5',
+    title: 'Vem Bem',
+    source: 'Carrinho Shein',
+    items: 5,
+    total: '25000Kz',
+    status: 'ativo',
+    pagamento: false, // Novo campo adicionado
+    image: require('../../assets/imagens/carrinho1.png'),
+  },
+  {
+    id: '6',
+    title: 'Vem Bem',
+    source: 'Carrinho Shein',
+    items: 5,
+    total: '25000Kz',
+    status: 'ativo',
+    pagamento: true,
+    image: require('../../assets/imagens/carrinho2.png'),
+  },
+  // Adicione mais objetos de dados conforme o necessário
+];
 
 const OrderScreen = () => {
 
-    const [selectedTab, setSelectedTab] = useState('Ativos');
-    const [activeTab, setActiveTab] = useState('Ativos');
+  const [selectedTab, setSelectedTab] = useState('Ativos');
+  const [activeTab, setActiveTab] = useState('Ativos');
 
 
   const renderOrderItem = ({ item }) => {
     return (
-        <View style={styles.orderItem}>
+      <View style={styles.orderItem}>
         <Image
           source={item.image}
           style={styles.orderItemImage}
         />
         <View style={styles.orderItemDetails}>
           <Text style={styles.orderItemTitle}>{item.title}</Text>
-          <Text  style={styles.itemSpace}>{item.source}</Text>
-          <Text  style={styles.itemSpace}>{item.items} itens</Text>
+          <Text style={styles.itemSpace}>{item.source}</Text>
+          <Text style={styles.itemSpace}>{item.items} itens</Text>
           <Text style={styles.itemSpace}>Total: {item.total}</Text>
         </View>
         <View style={styles.orderItemActions}>
-        {item.pagamento ? (
-          <TouchableOpacity style={styles.actionButton}>
-            
-            <Text style={styles.actionTitle}>Comprovativo </Text>
-            <Upload size={20} color="#FFF" />
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity style={styles.actionButton}>
-            <Text style={styles.actionTitle}>Seguir pedido</Text>
-          </TouchableOpacity>
-        )}
+          {item.pagamento ? (
+            <TouchableOpacity style={styles.actionButton}>
+
+              <Text style={styles.actionTitle}>Comprovativo </Text>
+              <Upload size={20} color="#FFF" />
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity style={styles.actionButton}>
+              <Text style={styles.actionTitle}>Seguir pedido</Text>
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
-    </View>
-  );
-};
+    );
+  };
 
 
   const tabIndicator = useRef(new Animated.Value(0)).current;
@@ -115,7 +115,7 @@ const OrderScreen = () => {
       bounciness: 10,
     }).start();
   };
-  
+
 
   return (
     <View style={styles.container}>
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center"
   },
-  actionTitle:{
+  actionTitle: {
     color: "white"
   },
   orderItem: {
@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
 
 
   },
-  itemSpace:{
+  itemSpace: {
     paddingBottom: 3,
     color: "#878787"
   },

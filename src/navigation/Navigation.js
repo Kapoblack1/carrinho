@@ -7,6 +7,7 @@ import LoginScreen from '../screens/LoginScreen';
 import CarrinhosScreen from '../screens/CarrinhosSrceen';
 import DetailsCarrinhoScreen from '../screens/DetailsCarrinho';
 import OrderScreen from '../screens/OrderScreen';
+import MyOrder from '../screens/MyOrder';
 import FeedBackScreen from '../screens/FeedBackScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
@@ -26,6 +27,9 @@ export default function Navigation() {
         <Stack.Screen name="CarrinhosScreen" component={CarrinhosScreen} />
         <Stack.Screen name="DetailsCarrinhoScreen" component={DetailsCarrinhoScreen} />
         <Stack.Screen name="OrderScreen" component={OrderScreen} />
+        <Stack.Screen name="FeedBackScreen" component={FeedBackScreen} />
+        <Stack.Screen name="MyOrder" component={MyOrder} />
+
         
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
   

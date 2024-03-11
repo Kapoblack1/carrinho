@@ -23,21 +23,21 @@ const CarrinhosScreen = () => {
   const renderItem = ({ item }) => (
     <>
       <TouchableOpacity onPress={() => handleItemPress(item)} style={styles.itemTouchable}>
-      <View style={styles.itemContainer}>
-        <Image
-          source={item.image}
-          style={styles.itemImage}
-          resizeMode="cover"
-        />
-        <View style={styles.itemInfo}>
-          <Text style={styles.itemTitle}>{item.name}</Text>
-          <Text style={styles.itemSpace}>Abertura: {item.date}</Text>
-          <Text style={styles.itemSpace}>Fecho: {item.date}</Text>
-          <Text style={styles.itemSpace}>Preço: {item.price}</Text>
+        <View style={styles.itemContainer}>
+          <Image
+            source={item.image}
+            style={styles.itemImage}
+            resizeMode="cover"
+          />
+          <View style={styles.itemInfo}>
+            <Text style={styles.itemTitle}>{item.name}</Text>
+            <Text style={styles.itemSpace}>Abertura: {item.date}</Text>
+            <Text style={styles.itemSpace}>Fecho: {item.date}</Text>
+            <Text style={styles.itemSpace}>Preço: {item.price}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.separator} />
-    </TouchableOpacity>
+        <View style={styles.separator} />
+      </TouchableOpacity>
     </>
   );
 
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   flatListContentContainer: {
     paddingBottom: 100, // Ajuste este valor conforme necessário
   },
-  itemSpace:{
+  itemSpace: {
     paddingBottom: 3,
     color: "#878787"
   },
