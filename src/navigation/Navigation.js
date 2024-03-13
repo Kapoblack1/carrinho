@@ -12,6 +12,7 @@ import FeedBackScreen from '../screens/FeedBackScreen';
 import ChatScreen from '../screens/ChatScreen';
 import Poppins from '../screens/Poppins';
 import NotificationsScreen from '../screens/NotificationsScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 
 
@@ -34,6 +35,9 @@ export default function Navigation() {
         <Stack.Screen name="ChatScreen" component={ChatScreen} />
         <Stack.Screen name="NotificationsScreen" component={NotificationsScreen} />
 
+        
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+  
       </Stack.Navigator>
     </NavigationContainer>
   );

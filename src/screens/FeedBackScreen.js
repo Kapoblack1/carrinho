@@ -66,7 +66,7 @@ const FeedbackScreen = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Carrinhos SHEIN</Text>
+        <Text style={styles.headerText}>Feedback</Text>
       </View>
       <ScrollView style={styles.scrollViewContainer}>
         <View style={styles.container}>
