@@ -4,16 +4,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import RegisterScreen from '../screens/RegisterScreen';
 import LoginScreen from '../screens/LoginScreen';
-import CarrinhosScreen from '../screens/CarrinhosSrceen';
+import CarrinhosScreen from '../screens/CarrinhosScreen';
 import DetailsCarrinhoScreen from '../screens/DetailsCarrinho';
 import OrderScreen from '../screens/OrderScreen';
 import MyOrder from '../screens/MyOrder';
 import FeedBackScreen from '../screens/FeedBackScreen';
 import ChatScreen from '../screens/ChatScreen';
-import Poppins from '../screens/Poppins';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-
+import Carrinhos from '../screens/Vendedor/Carrinhos';
 
 
 const Stack = createStackNavigator();
@@ -22,7 +21,7 @@ export default function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="NotificationsScreen"
+        initialRouteName="Carrinhos"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
@@ -34,10 +33,9 @@ export default function Navigation() {
         <Stack.Screen name="MyOrder" component={MyOrder} />
         <Stack.Screen name="ChatScreen" component={ChatScreen} />
         <Stack.Screen name="NotificationsScreen" component={NotificationsScreen} />
-
-        
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
-  
+        <Stack.Screen name="Carrinhos" component={Carrinhos} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

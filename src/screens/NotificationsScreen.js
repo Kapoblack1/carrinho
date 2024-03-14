@@ -78,7 +78,6 @@ const NotificationScreen = () => {
                 <SafeAreaView style={styles.safeArea}>
                     <View style={styles.header}>
                         <TouchableOpacity style={{width:'25%', marginLeft: 5}}><CaretLeft size={24} /></TouchableOpacity>
-                        
                         <Text style={styles.headerText}>Notificações</Text>
                     </View>
 
@@ -140,8 +139,6 @@ const styles = StyleSheet.create({
         margin: 16,
         fontFamily: 'Poppins_400Regular',
         width: '80%',
-
-
     },
     itemContainer: {
         flexDirection: "row",
