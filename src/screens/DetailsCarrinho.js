@@ -127,65 +127,67 @@ const DetailsCarrinhoScreen = () => {
           >
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
-                <View style={styles.modalHeader}>
-                  <Text style={styles.modalHeaderText}>Detalhes do item</Text>
-                  <TouchableOpacity
-                    onPress={() => setModalVisible(!modalVisible)}
-                    style={styles.closeButton}
-                  >
-                    <X size={24} color="#000" />
-                  </TouchableOpacity>
-                </View>
+                <ScrollView style={styles.scroll}>
+                  <View style={styles.modalHeader}>
+                    <Text style={styles.modalHeaderText}>Detalhes do item</Text>
+                    <TouchableOpacity
+                      onPress={() => setModalVisible(!modalVisible)}
+                      style={styles.closeButton}
+                    >
+                      <X size={24} color="#000" />
+                    </TouchableOpacity>
+                  </View>
 
-                <View style={styles.modalBody}>
-                  <Text style={styles.inputLabel}>Link</Text>
-                  <TextInput
-                    placeholder="shein.xpto.shoes23749846"
-                    placeholderTextColor={"#878787"}
-                    style={styles.input}
-                  />
-
-                  <Text style={styles.inputLabel}>Preço</Text>
-                  <TextInput style={styles.input} defaultValue="18.99" />
-
-                  <TouchableOpacity
-                    style={styles.addButton2}
-                    onPress={() => setModalVisible(true)}
-                  >
-                    <Text style={styles.addButtonText2}>Adicionar foto </Text>
-                    <PlusCircle
-                      size={20}
-                      color="#000"
-                      style={styles.searchIcon}
+                  <View style={styles.modalBody}>
+                    <Text style={styles.inputLabel}>Link</Text>
+                    <TextInput
+                      placeholder="shein.xpto.shoes23749846"
+                      placeholderTextColor={"#878787"}
+                      style={styles.input}
                     />
-                  </TouchableOpacity>
-                  <FlatList
-                    horizontal
-                    data={fotos}
-                    renderItem={({ item }) => (
-                      <Image source={item.uri} style={styles.foto} />
-                    )}
-                    keyExtractor={(item) => item.id}
-                  />
 
-                  <Text style={styles.inputLabel}>Descrição</Text>
-                  <TextInput
-                    style={[styles.input, styles.descriptionInput]}
-                    multiline
-                    placeholderTextColor={"#878787"}
-                    placeholder="Adicione especificações sobre o pedido (cor, tamanho, quantidade) se achar necessário."
-                    numberOfLines={4}
-                    blurOnSubmit={true} // Adiciona esta linha
-                    onSubmitEditing={() => {}} // Adicione esta linha para esconder o teclado
-                  />
+                    <Text style={styles.inputLabel}>Preço</Text>
+                    <TextInput style={styles.input} defaultValue="18.99" />
 
-                  <TouchableOpacity
-                    style={styles.orderButton1}
-                    onPress={adicionarItem}
-                  >
-                    <Text style={styles.addButtonText}>Adicionar item</Text>
-                  </TouchableOpacity>
-                </View>
+                    <TouchableOpacity
+                      style={styles.addButton2}
+                      onPress={() => setModalVisible(true)}
+                    >
+                      <Text style={styles.addButtonText2}>Adicionar foto </Text>
+                      <PlusCircle
+                        size={20}
+                        color="#000"
+                        style={styles.searchIcon}
+                      />
+                    </TouchableOpacity>
+                    <FlatList
+                      horizontal
+                      data={fotos}
+                      renderItem={({ item }) => (
+                        <Image source={item.uri} style={styles.foto} />
+                      )}
+                      keyExtractor={(item) => item.id}
+                    />
+
+                    <Text style={styles.inputLabel}>Descrição</Text>
+                    <TextInput
+                      style={[styles.input, styles.descriptionInput]}
+                      multiline
+                      placeholderTextColor={"#878787"}
+                      placeholder="Adicione especificações sobre o pedido (cor, tamanho, quantidade) se achar necessário."
+                      numberOfLines={4}
+                      blurOnSubmit={true} // Adiciona esta linha
+                      onSubmitEditing={() => {}} // Adicione esta linha para esconder o teclado
+                    />
+
+                    <TouchableOpacity
+                      style={styles.orderButton1}
+                      onPress={adicionarItem}
+                    >
+                      <Text style={styles.addButtonText}>Adicionar item</Text>
+                    </TouchableOpacity>
+                  </View>
+                </ScrollView>
               </View>
             </View>
           </Modal>
@@ -378,6 +380,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "rgba(0, 0, 0, 0.6)",
   },
+  scroll: {
+    width: "100%"
+  },
   modalView: {
     margin: 20,
     backgroundColor: "white",
@@ -427,7 +432,7 @@ const styles = StyleSheet.create({
   },
   descriptionInput: {
     textAlignVertical: "top", // Para alinhar o texto no topo no Android
-    height: 130,
+    height: 140,
   },
   foto: {
     width: 100,
@@ -460,7 +465,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     padding: 10,
-    marginHorizontal:10,
+    marginHorizontal: 10,
     borderBottomWidth: 1,
     borderColor: "#e1e1e1",
     backgroundColor: "#fff", // Cor de fundo para cada item do carrinho
@@ -470,10 +475,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#704F38", // Cor do texto para o nome do item
   },
-  row:{
-    flexDirection: 'row',
+  row: {
+    flexDirection: "row",
     alignContent: "center",
-    alignItems: 'center'
+    alignItems: "center",
   },
   itemPreco: {
     fontSize: 16,

@@ -13,6 +13,11 @@ import ChatScreen from '../screens/ChatScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import Carrinhos from '../screens/Vendedor/Carrinhos';
+import CreateCartScreen from '../screens/Vendedor/CreateCartScreen';
+import MyCartsScreen from '../screens/Vendedor/MyCartsScreen';
+import ChatScreen from '../screens/Vendedor/ChatsScreen';
+import OrdersScreen from '../screens/Vendedor/OrdersScreen';
+
 
 
 const Stack = createStackNavigator();
@@ -33,6 +38,10 @@ export default function Navigation() {
         <Stack.Screen name="MyOrder" component={MyOrder} />
         <Stack.Screen name="ChatScreen" component={ChatScreen} />
         <Stack.Screen name="NotificationsScreen" component={NotificationsScreen} />
+        <Stack.Screen name="CreateCartScreen" component={CreateCartScreen} />
+        <Stack.Screen name="MyCartsScreen" component={MyCartsScreen} />
+        <Stack.Screen name="ChatsScreen" component={ChatScreen} />
+        <Stack.Screen name="OrdersScreen" component={OrdersScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="Carrinhos" component={Carrinhos} />
 

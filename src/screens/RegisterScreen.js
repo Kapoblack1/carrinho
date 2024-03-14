@@ -103,9 +103,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     paddingHorizontal: 10,
     alignContent: "center",
+    paddingBottom: 30
   },
   header: {
-    marginTop: 80,
+    marginTop: 70,
     marginBottom: 20,
     marginHorizontal: 50,
     justifyContent: "center",
@@ -127,7 +128,7 @@ const styles = StyleSheet.create({
   },
   editIcon: {
     position: "absolute", // Posiciona o ícone sobre o contêiner da imagem de perfil
-    right: 143, // Ajuste conforme necessário para alinhar onde você quer
+    left: "55%", // Ajuste conforme necessário para alinhar onde você quer
     bottom: 35, // Ajuste conforme necessário para alinhar onde você quer
     backgroundColor: "#704F38", // Cor de fundo do ícone para corresponder ao seu esquema de cores
     borderRadius: 32, // Ajuste para corresponder à forma arredondada
@@ -141,8 +142,10 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     backgroundColor: "#E0E0E0", // Placeholder color
   },
+  
   inputContainer: {
     paddingHorizontal: 30,
+    paddingBottom: 20
   },
   input: {
     backgroundColor: "#FFF", // White background
@@ -204,6 +207,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "bold",
+    marginBottom: "3%"
   },
   center: {
     justifyContent: "center",

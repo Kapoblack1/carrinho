@@ -164,8 +164,8 @@ const MyOrder = () => {
           </View>
 
           <Text style={styles.sectionTitle}>Estado do Pedido</Text>
-          <View style={styles.detailsContainer}>
-            <View style={styles.detailsContainer}>
+          <View style={styles.detailsContainer1}>
+            <View style={styles.detailsContainer1}>
               {estadosPedido.map((estado, index) => (
                 <View key={index} style={styles.state}>
                   <View style={styles.stateDetails}>
@@ -266,6 +266,9 @@ const styles = StyleSheet.create({
     borderBottomColor: "#DEDEDE",
     borderBottomWidth: 1,
   },
+  detailsContainer1: {
+    margin: "3%",
+  },
   detail: {
     display: "flex",
     flexDirection: "row",
@@ -283,7 +286,7 @@ const styles = StyleSheet.create({
   stateDetails: {
     display: "flex",
     flexDirection: "row",
-    paddingBottom: 40,
+    paddingBottom: 30,
   },
   relative: {
     position: "relative",

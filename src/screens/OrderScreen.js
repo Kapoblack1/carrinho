@@ -104,7 +104,7 @@ const OrderScreen = () => {
 
   const tabIndicator = useRef(new Animated.Value(0)).current;
   const windowWidth = Dimensions.get('window').width;
-  const tabWidth = windowWidth / 2 - 20;
+  const tabWidth = windowWidth / 2 - 10;
 
   const handleTabPress = (tabName) => {
     setActiveTab(tabName);
@@ -168,12 +168,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingHorizontal: 20,
+    paddingHorizontal: "2.2%",
   },
   header: {
     fontSize: 22,
     fontWeight: 'bold',
-    marginTop: 50,
+    marginTop: "15%",
     marginBottom: 20,
     textAlign: 'center',
   },
@@ -205,14 +205,6 @@ const styles = StyleSheet.create({
   tabContent: {
     flex: 1,
   },
-  tabUnderline: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: 1,
-    backgroundColor: '#E8E8E8', // Cor da linha cinza
-  },
   orderList: {
     flex: 1,
   },
@@ -220,29 +212,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: "row",
     justifyContent: "center",
-    alignContent: "center"
+    alignContent: "center",
+    
   },
   actionTitle: {
     color: "white"
   },
   orderItem: {
     flexDirection: 'row',
-    padding: 20,
+    padding: "6%",
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#E8E8E8',
   },
   orderItemImage: {
-    width: 100,
-    height: 100,
-    marginRight: 16,
+    width: "25%",
+    height: "100%",
+    marginRight: "2%",
     borderRadius: 8,
   },
   orderItemDetails: {
     flex: 1,
+    left:"0%"
   },
   orderItemTitle: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
 
   },
@@ -252,16 +246,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
     backgroundColor: "#704F38",
-    height: 40,
-    width: 130,
-    top: 20,
+    height: "39%",
+    width: "37%",
+    top: "23%",
     borderRadius: 20,
-    left: 20
+    left: "6%"
 
 
   },
   itemSpace: {
-    paddingBottom: 3,
+    paddingBottom: "2%",
     color: "#878787"
   },
 });
