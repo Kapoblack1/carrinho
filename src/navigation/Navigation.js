@@ -10,6 +10,10 @@ import OrderScreen from '../screens/OrderScreen';
 import MyOrder from '../screens/MyOrder';
 import FeedBackScreen from '../screens/FeedBackScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import CreateCartScreen from '../screens/Vendedor/CreateCartScreen';
+import MyCartsScreen from '../screens/Vendedor/MyCartsScreen';
+import ChatScreen from '../screens/Vendedor/ChatsScreen';
+import OrdersScreen from '../screens/Vendedor/OrdersScreen';
 
 
 
@@ -19,7 +23,7 @@ export default function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="MyOrder"
+      initialRouteName="ProfileScreen"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
@@ -29,8 +33,10 @@ export default function Navigation() {
         <Stack.Screen name="OrderScreen" component={OrderScreen} />
         <Stack.Screen name="FeedBackScreen" component={FeedBackScreen} />
         <Stack.Screen name="MyOrder" component={MyOrder} />
-
-        
+        <Stack.Screen name="CreateCartScreen" component={CreateCartScreen} />
+        <Stack.Screen name="MyCartsScreen" component={MyCartsScreen} />
+        <Stack.Screen name="ChatsScreen" component={ChatScreen} />
+        <Stack.Screen name="OrdersScreen" component={OrdersScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
   
       </Stack.Navigator>

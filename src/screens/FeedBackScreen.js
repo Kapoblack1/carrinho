@@ -288,10 +288,11 @@ const styles = StyleSheet.create({
   },
   button: {
     paddingVertical: 20,
-    borderRadius: 30,
+    borderRadius: 50,
     justifyContent: "center",
     alignItems: "center",
-    minWidth: 170,
+    minWidth: "39%",
+    height:"36%"
   },
   cancelButton: {
     backgroundColor: "#CCCCCC", // Cor do botão cancelar
