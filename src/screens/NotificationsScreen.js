@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     SafeAreaView,
     StyleSheet,
@@ -8,12 +8,11 @@ import {
     TouchableOpacity,
     SectionList,
 } from "react-native";
-import { BellSimple, CaretLeft } from "phosphor-react-native";
-import AppLoading from 'expo-app-loading';
-import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
+import { BellSimple } from "phosphor-react-native";
+import Header from '../components/Header';
+
 
 const NotificationScreen = () => {
-    let [fontsLoaded] = useFonts({ Poppins_400Regular });
 
     const [notifications, setNotifications] = useState([
         { id: "1", title: "Pedido entregue", description: "O seu pedido foi entregue ao vendedor, em breve estará em suas mãos", date: "HOJE", read: false },
@@ -38,10 +37,6 @@ const NotificationScreen = () => {
         data: groupedNotifications[date],
     }));
 
-    const markAsRead = (id) => {
-        // Your existing logic
-    };
-
     const renderSectionHeader = ({ section: { title } }) => (
         <View style={styles.sectionHeader}>
             <Text style={styles.sectionHeaderText}>{title}</Text>
@@ -65,34 +60,21 @@ const NotificationScreen = () => {
         </TouchableOpacity>
     );
 
+    return (
+        <SafeAreaView style={styles.safeArea}>
+            <Header page="Notificações"></Header>
 
-    if (!fontsLoaded) {
-        return <AppLoading />;
-    } else {
+            <SectionList
+                sections={sections}
+                keyExtractor={(item) => item.id}
+                renderItem={renderItem}
+                renderSectionHeader={renderSectionHeader}
+                contentContainerStyle={styles.listContainer}
+            />
+        </SafeAreaView>
+    );
 
 
-        if (!fontsLoaded) {
-            return <AppLoading />;
-        } else {
-            return (
-                <SafeAreaView style={styles.safeArea}>
-                    <View style={styles.header}>
-                        <TouchableOpacity style={{width:'25%', marginLeft: 5}}><CaretLeft size={24} /></TouchableOpacity>
-                        <Text style={styles.headerText}>Notificações</Text>
-                    </View>
-
-                    <SectionList
-                        sections={sections}
-                        keyExtractor={(item) => item.id}
-                        renderItem={renderItem}
-                        renderSectionHeader={renderSectionHeader}
-                        contentContainerStyle={styles.listContainer}
-                    />
-                </SafeAreaView>
-            );
-        }
-
-    }
 };
 
 const styles = StyleSheet.create({
@@ -101,7 +83,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFF", // ou a cor de
     },
     scrollViewStyle: {
-        flex: 1, 
+        flex: 1,
     },
     container: {
         marginHorizontal: 13,
@@ -114,7 +96,7 @@ const styles = StyleSheet.create({
     },
     sectionHeader: {
         marginBottom: 10,
-        marginTop:  10,
+        marginTop: 10,
         marginLeft: 10,
 
     },

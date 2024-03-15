@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -23,7 +23,7 @@ const FeedbackScreen = () => {
     pagamento: false,
     image: require("../../assets/imagens/carrinho1.png"),
   };
-  
+
   const [fotos, setFotos] = useState([
     { id: "1", uri: require("../../assets/imagens/carrinho1.png") },
     { id: "2", uri: require("../../assets/imagens/carrinho2.png") },
@@ -90,7 +90,7 @@ const FeedbackScreen = () => {
           </View>
           <View style={styles.separator} />
           <View style={styles.feedbackContainer}>
-            <Text style={styles.pontuacao}>A sua pontução</Text>
+            <Text style={styles.pontuacao}>A sua pontuação</Text>
           </View>
           <View style={styles.starsContainer}>
             <Star
@@ -126,7 +126,7 @@ const FeedbackScreen = () => {
           </View>
           <View style={styles.separator} />
           <View style={styles.titleFeed}>
-            <Text>Dê um feedback detalhado</Text>
+            <Text style={{ fontFamily: 'Poppins_400Regular'}}>Dê um feedback detalhado</Text>
           </View>
           <TextInput
             style={[styles.input, styles.descriptionInput]}
@@ -135,7 +135,7 @@ const FeedbackScreen = () => {
             placeholder="Digite aqui..."
             numberOfLines={4}
             blurOnSubmit={true} // Adiciona esta linha
-            onSubmitEditing={() => {}} // Adicione esta linha para esconder o teclado
+            onSubmitEditing={() => { }} // Adicione esta linha para esconder o teclado
           />
           <TouchableOpacity style={styles.cameraPlus}>
             <CameraPlus
@@ -192,7 +192,8 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: 'Poppins_600SemiBold',
+
   },
   itemContainer: {
     flexDirection: "row",
@@ -209,11 +210,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   itemTitle: {
-    fontWeight: "bold",
     fontSize: 18,
+    fontFamily: 'Poppins_600SemiBold',
+
+
   },
   itemSpace: {
     color: "#878787",
+    fontFamily: 'Poppins_400Regular',
+
   },
   separator: {
     height: 1,
@@ -229,11 +234,13 @@ const styles = StyleSheet.create({
   },
   feedbackQuestion: {
     fontSize: 26,
-    // Estilos adicionais se necessário
+    fontFamily: 'Poppins_400Regular',
   },
   pontuacao: {
     fontSize: 14,
     color: "#878787",
+    fontFamily: 'Poppins_400Regular',
+
   },
   starsContainer: {
     flexDirection: "row",
@@ -247,6 +254,8 @@ const styles = StyleSheet.create({
   },
   titleFeed: {
     marginVertical: "2%",
+    fontFamily: 'Poppins_400Regular',
+
   },
   descriptionContainer: {
     marginTop: 30,
@@ -265,6 +274,8 @@ const styles = StyleSheet.create({
   descriptionInput: {
     textAlignVertical: "top", // Para alinhar o texto no topo no Android
     height: 130,
+    fontFamily: 'Poppins_400Regular',
+
   },
   input: {
     width: "100%",
@@ -280,6 +291,8 @@ const styles = StyleSheet.create({
   },
   adicionar: {
     color: "#704F38",
+    fontFamily: 'Poppins_400Regular',
+
   },
   buttonsContainer: {
     flexDirection: "row",
@@ -292,13 +305,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     minWidth: "39%",
-    height:"36%"
+    height: "36%"
   },
   cancelButton: {
     backgroundColor: "#CCCCCC", // Cor do botão cancelar
+    fontFamily: 'Poppins_400Regular',
+
   },
   sendButton: {
     backgroundColor: "#704F38", // Cor do botão enviar
+    fontFamily: 'Poppins_400Regular',
+
   },
   buttonText: {
     color: "#FFF", // Cor do texto do botão

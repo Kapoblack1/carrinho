@@ -22,6 +22,7 @@ import {
   AirplaneTakeoff,
   Truck,
 } from "phosphor-react-native";
+import Header from '../components/Header';
 
 const MyOrder = () => {
   // Mock data, substitua com seus dados reais conforme necessário
@@ -109,10 +110,7 @@ const MyOrder = () => {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.scrollViewStyle}>
         <View style={styles.container}>
-          <View style={styles.header}>
-            <CaretLeft size={24} />
-            <Text style={styles.headerText}>Seguir Pedido</Text>
-          </View>
+          <Header page={'Seguir Pedido'}></Header>
           <View style={styles.itemContainer}>
             <Image
               source={carrinho.imagemCarrinho}
@@ -151,15 +149,15 @@ const MyOrder = () => {
           <View style={styles.detailsContainer}>
             <View style={styles.detail}>
               <Text style={styles.detailText}>Estimativa de Chegada</Text>
-              <Text>{pedido.chegada}</Text>
+              <Text style={styles.detailText1}>{pedido.chegada}</Text>
             </View>
             <View style={styles.detail}>
               <Text style={styles.detailText}>ID do pedido</Text>
-              <Text>{pedido.id}</Text>
+              <Text style={styles.detailText1}>{pedido.id}</Text>
             </View>
             <View style={styles.detail}>
               <Text style={styles.detailText}>Link enviado</Text>
-              <Text>{pedido.link}</Text>
+              <Text style={styles.detailText1}>{pedido.link}</Text>
             </View>
           </View>
 
@@ -245,6 +243,7 @@ const styles = StyleSheet.create({
   itemSpace: {
     paddingBottom: 3,
     color: "#878787",
+    fontFamily: 'Poppins_400Regular'
   },
   itemImage: {
     width: 100,
@@ -259,6 +258,7 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontSize: 18,
     marginBottom: 4,
+    fontFamily: 'Poppins_400Regular'
   },
   detailsContainer: {
     margin: "3%",
@@ -277,6 +277,12 @@ const styles = StyleSheet.create({
   },
   detailText: {
     fontSize: 16,
+    fontFamily: 'Poppins_400Regular'
+  },
+  detailText1:{
+    fontSize: 14,
+    fontFamily: 'Poppins_400Regular',
+
   },
   state: {
     display: "flex",
@@ -293,14 +299,17 @@ const styles = StyleSheet.create({
   },
   stateText: {
     marginLeft: "10%",
+    fontFamily: 'Poppins_400Regular'
   },
   actualState: {
     fontSize: 18,
+    fontFamily: 'Poppins_400Regular',
   },
   stateDate: {
     fontSize: 14,
     marginTop: 2,
     color: "#A9A9A9",
+    fontFamily: 'Poppins_400Regular',
   },
   verticalLine: {
     height: 49,
@@ -315,10 +324,10 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   sectionTitle: {
-    fontWeight: "bold",
     fontSize: 18,
     marginTop: 20,
     marginLeft: "3%",
+    fontFamily: 'Poppins_600SemiBold'
   },
   descriptionContainer: {
     marginTop: 30,
@@ -355,6 +364,7 @@ const styles = StyleSheet.create({
   vendedorName: {
     fontWeight: "bold",
     fontSize: 18,
+    fontFamily: 'Poppins_400Regular'
   },
   totalCarrinhos: {
     fontSize: 16,

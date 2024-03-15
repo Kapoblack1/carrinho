@@ -2,12 +2,10 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { GiftedChat, Bubble, InputToolbar, Composer, Send } from 'react-native-gifted-chat';
 import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import james from '../../assets/imagens/avatar.webp';
-import { CaretLeft} from "phosphor-react-native";
-import AppLoading from 'expo-app-loading';
-import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
+import { CaretLeft } from "phosphor-react-native";
 
 export default function ChatScreen() {
-    let [fontsLoaded] = useFonts({ Poppins_400Regular });
+
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
@@ -95,7 +93,7 @@ export default function ChatScreen() {
                 }}
             >
                 <View >
-                    <Text style={{color: 'white'}}>Enviar</Text>
+                    <Text style={{ color: 'white' }}>Enviar</Text>
                 </View>
             </Send>
         );
@@ -133,59 +131,54 @@ export default function ChatScreen() {
         return null;
     };
 
+    return (
 
-    if (!fontsLoaded) {
-        return <AppLoading />;
-    } else {
+        <SafeAreaView style={styles.safeArea}>
 
-        return (
+            <View style={styles.header}>
 
-            <SafeAreaView style={styles.safeArea}>
+                <TouchableOpacity>
+                    <CaretLeft size={24} color='white'></CaretLeft>
+                </TouchableOpacity>
 
-                <View style={styles.header}>
+                <Image
+                    source={james}
+                    style={styles.pfp}
+                    resizeMode="cover"
+                />
 
-                    <TouchableOpacity>
-                        <CaretLeft size={24} color='white'></CaretLeft>
-                    </TouchableOpacity>
-
-                    <Image
-                        source={james}
-                        style={styles.pfp}
-                        resizeMode="cover"
-                    />
-
-                    <View style={{ marginLeft: 10 }}>
-                        <Text style={styles.name}>Romeno do Rosário</Text>
-                        <Text style={styles.status}>Online</Text>
-                    </View>
-
-
+                <View style={{ marginLeft: 10 }}>
+                    <Text style={styles.name}>Romeno do Rosário</Text>
+                    <Text style={styles.status}>Online</Text>
                 </View>
 
-                <View style={styles.textsContainer}>
 
-                    <GiftedChat
-                        messages={messages}
-                        onSend={(messages) => onSend(messages)}
-                        user={{
-                            _id: 1,
-                        }}
-                        renderBubble={renderBubble}
-                        renderInputToolbar={renderInputToolbar}
-                        renderComposer={renderComposer}
-                        renderAvatar={renderAvatar}
-                        renderSend={renderSend}
-                        placeholder="Type a message here..."
-                        alwaysShowSend={false}
-                        scrollToBottom={true}
-                    />
+            </View>
 
-                </View>
+            <View style={styles.textsContainer}>
 
-            </SafeAreaView>
+                <GiftedChat
+                    messages={messages}
+                    onSend={(messages) => onSend(messages)}
+                    user={{
+                        _id: 1,
+                    }}
+                    renderBubble={renderBubble}
+                    renderInputToolbar={renderInputToolbar}
+                    renderComposer={renderComposer}
+                    renderAvatar={renderAvatar}
+                    renderSend={renderSend}
+                    placeholder="Type a message here..."
+                    alwaysShowSend={false}
+                    scrollToBottom={true}
+                />
 
-        );
-    }
+            </View>
+
+        </SafeAreaView>
+
+    );
+
 
 }
 
@@ -223,7 +216,7 @@ const styles = StyleSheet.create({
     name: {
         color: 'white',
         fontSize: 16,
-        fontFamily: 'Poppins_400Regular',
+        fontFamily: 'Poppins_500Medium',
 
     },
     avatar: {

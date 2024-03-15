@@ -10,12 +10,12 @@ import OrderScreen from '../screens/OrderScreen';
 import MyOrder from '../screens/MyOrder';
 import FeedBackScreen from '../screens/FeedBackScreen';
 import ChatScreen from '../screens/ChatScreen';
+import ChatsScreen from '../screens/Vendedor/ChatsScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import Carrinhos from '../screens/Vendedor/Carrinhos';
 import CreateCartScreen from '../screens/Vendedor/CreateCartScreen';
 import MyCartsScreen from '../screens/Vendedor/MyCartsScreen';
-import ChatScreen from '../screens/Vendedor/ChatsScreen';
 import OrdersScreen from '../screens/Vendedor/OrdersScreen';
 
 
@@ -40,7 +40,7 @@ export default function Navigation() {
         <Stack.Screen name="NotificationsScreen" component={NotificationsScreen} />
         <Stack.Screen name="CreateCartScreen" component={CreateCartScreen} />
         <Stack.Screen name="MyCartsScreen" component={MyCartsScreen} />
-        <Stack.Screen name="ChatsScreen" component={ChatScreen} />
+        <Stack.Screen name="ChatsScreen" component={ChatsScreen} />
         <Stack.Screen name="OrdersScreen" component={OrdersScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="Carrinhos" component={Carrinhos} />

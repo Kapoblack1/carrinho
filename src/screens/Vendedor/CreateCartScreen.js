@@ -8,16 +8,15 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { CaretLeft } from 'phosphor-react-native';
+import Header from '../../components/Header';
 
 const CreateCartScreen = () => {
   return (
     <View style={styles.container}>
-        <Text style={styles.header}>Criar carrinhos</Text>
-        <CaretLeft style={styles.back}></CaretLeft>
+      <Header page={'Criar Carrinho'}></Header>
       <ScrollView >
         <View style={styles.inputGroup}>
-        <Text style={styles.title}>Nome do carrinho</Text>
+          <Text style={styles.title}>Nome do carrinho</Text>
           <TextInput
             style={styles.input}
             placeholder="Carrinho da Shein"
@@ -26,7 +25,7 @@ const CreateCartScreen = () => {
         </View>
 
         <View style={styles.inputGroup}>
-        <Text style={styles.title}>Fecho do carrinho</Text>
+          <Text style={styles.title}>Fecho do carrinho</Text>
           <TextInput
             style={styles.input}
             placeholder="Carrinho da Shein"
@@ -35,7 +34,7 @@ const CreateCartScreen = () => {
         </View>
 
         <View style={styles.inputGroup}>
-        <Text style={styles.title}>Câmbio</Text>
+          <Text style={styles.title}>Câmbio</Text>
           <TextInput
             style={styles.input}
             placeholder="897 Kz"
@@ -45,7 +44,7 @@ const CreateCartScreen = () => {
         </View>
 
         <View style={styles.inputGroup}>
-        <Text style={styles.title}>Descrição</Text>
+          <Text style={styles.title}>Descrição</Text>
           <TextInput
             style={[styles.input, styles.descriptionInput]}
             placeholder="Carrinho de natal, todos os produtos chegam 1 semana antes do natal, aproveita."
@@ -85,12 +84,16 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     fontSize: 16,
     padding: 10,
+    fontFamily: 'Poppins_400Regular',
+
   },
   descriptionInput: {
     height: 130,
     textAlignVertical: "top",
-    borderColor: "#704F38"
-    
+    borderColor: "#704F38",
+    fontFamily: 'Poppins_400Regular',
+
+
   },
   button: {
     backgroundColor: "#704F38",
@@ -106,12 +109,16 @@ const styles = StyleSheet.create({
     color: "#FFF",
     fontSize: 18,
     fontWeight: "bold",
+    fontFamily: 'Poppins_400Regular',
+
   },
-  title:{
+  title: {
     padding: 10,
     fontSize: 16,
+    fontFamily: 'Poppins_400Regular',
+
   },
-  back:{
+  back: {
     marginBottom: 20
   }
 });

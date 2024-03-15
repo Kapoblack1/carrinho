@@ -80,20 +80,22 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     marginBottom: 50,
+    marginTop: 50,
     alignItems: "center",
   },
   headerText: {
     fontSize: 32,
-    fontWeight: "500", // fontWeight 700 is equivalent to 'bold'
+    fontFamily: 'Poppins_400Regular',
   },
   inputFieldContainer: {
     marginBottom: 20,
   },
   inputLabel: {
     fontSize: 20,
-    fontWeight: "400", // Slightly less bold than the header text
     color: "#000000",
     marginBottom: 20,
+    fontFamily: 'Poppins_400Regular',
+
   },
   inputField: {
     backgroundColor: "#FFF", // White background
@@ -103,7 +105,8 @@ const styles = StyleSheet.create({
     padding: 15,
     marginBottom: 18,
     fontSize: 16,
-    height: 58
+    height: 58,
+    fontFamily: 'Poppins_400Regular',
   },
   forgotPassword: {
 
@@ -114,6 +117,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "600",
     textDecorationLine: "underline",
+    fontFamily: 'Poppins_600SemiBold',
+
   },
   loginButton: {
     backgroundColor: "#704F38", // Brown color for the login button
@@ -123,8 +128,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
+    marginBottom: 20,
+
   },
-  loginButtonContainer:{
+  loginButtonContainer: {
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center"
@@ -132,7 +139,8 @@ const styles = StyleSheet.create({
   loginButtonText: {
     color: "#FFFFFF", // White color for the button text
     fontSize: 18,
-    fontWeight: "700",
+    fontFamily: 'Poppins_400Regular',
+
   },
   logo: {
     height: 100,

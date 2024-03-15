@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
 import { CaretLeft } from 'phosphor-react-native';
-
+import Header from '../../components/Header'
 // Dummy data for the list of orders
 const ordersData = [
   {
@@ -43,8 +43,7 @@ const ordersData = [
 const OrdersScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Pedidos</Text>
-      <CaretLeft style={styles.back}></CaretLeft>
+      <Header page={'Pedidos'}></Header>
       <FlatList
         data={ordersData}
         keyExtractor={(item) => item.id}
@@ -68,7 +67,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFF',
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    marginTop: 20,
   },
   header: {
     fontSize: 24,
@@ -96,10 +96,14 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 16,
     fontWeight: 'bold',
+    fontFamily: 'Poppins_600SemiBold',
+
   },
   detail: {
     fontSize: 14,
     color: 'grey',
+    fontFamily: 'Poppins_400Regular',
+
   },
   back:{
     marginBottom: 20

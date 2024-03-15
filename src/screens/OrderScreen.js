@@ -1,6 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, TouchableOpacity, Animated, StyleSheet, Dimensions, FlatList, Image, imageSource } from 'react-native';
 import { Upload, Eye } from 'phosphor-react-native';
+import Header from '../components/Header';
+
+
+
 const mockData = [
   {
     id: '1',
@@ -119,9 +123,7 @@ const OrderScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Cabeçalho da Tela */}
-      <Text style={styles.header}>Meus pedidos</Text>
-
+      <Header page={'Meus Pedidos'}></Header>
       {/* Guias de Navegação */}
       <View style={styles.tabsContainer}>
         <View style={styles.tabUnderline} />
@@ -169,6 +171,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingHorizontal: "2.2%",
+    marginTop: 20,
   },
   header: {
     fontSize: 22,
@@ -191,10 +194,13 @@ const styles = StyleSheet.create({
   tabText: {
     fontSize: 16,
     color: 'grey',
+    fontFamily: 'Poppins_400Regular',
+
   },
   activeTabText: {
-    fontWeight: 'bold',
     color: 'black',
+    fontFamily: 'Poppins_600SemiBold',
+
   },
   tabIndicator: {
     height: 4,
@@ -213,10 +219,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignContent: "center",
-    
+
   },
   actionTitle: {
-    color: "white"
+    color: "white",
+    fontFamily: 'Poppins_400Regular',
+
   },
   orderItem: {
     flexDirection: 'row',
@@ -233,11 +241,13 @@ const styles = StyleSheet.create({
   },
   orderItemDetails: {
     flex: 1,
-    left:"0%"
+    left: "0%"
   },
   orderItemTitle: {
     fontSize: 16,
     fontWeight: 'bold',
+    fontFamily: 'Poppins_600SemiBold',
+
 
   },
   orderItemActions: {
@@ -256,7 +266,9 @@ const styles = StyleSheet.create({
   },
   itemSpace: {
     paddingBottom: "2%",
-    color: "#878787"
+    color: "#878787",
+    fontFamily: 'Poppins_400Regular',
+
   },
 });
 

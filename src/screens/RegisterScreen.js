@@ -9,6 +9,9 @@ import {
   Image,
 } from "react-native";
 import { Check, PencilSimpleLine } from "phosphor-react-native";
+import avatar from '../../assets/imagens/avatar.webp';
+
+
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
@@ -29,7 +32,7 @@ const RegisterScreen = () => {
       </View>
       <View style={styles.center}>
         <View style={styles.profileImageContainer}>
-          {/* Aqui você coloca a imagem de perfil */}
+          <Image source={avatar} style={styles.pfp}></Image>
         </View>
         <TouchableOpacity style={styles.editIcon}>
           <PencilSimpleLine size={24} color="#FFF" />
@@ -38,22 +41,22 @@ const RegisterScreen = () => {
       <View style={styles.inputContainer}>
         <Text style={styles.title}>Nome</Text>
         <TextInput
-          placeholder="  Cleusia dos Anjos"
+          placeholder="Cleusia dos Anjos"
           value={name}
           onChangeText={setName}
           style={styles.input}
         />
         <Text style={styles.title}>Email</Text>
         <TextInput
-          placeholder="  cleusiaast@gmail.com"
+          placeholder="cleusiaast@gmail.com"
           value={email}
           onChangeText={setEmail}
           style={styles.input}
-          keyboardType="   email-address"
+          keyboardType="email-address"
         />
         <Text style={styles.title}>Password</Text>
         <TextInput
-          placeholder="  ******************"
+          placeholder="******************"
           value={password}
           onChangeText={setPassword}
           style={styles.input}
@@ -61,7 +64,7 @@ const RegisterScreen = () => {
         />
         <Text style={styles.title}>Confirmação da Password</Text>
         <TextInput
-          placeholder="  ******************"
+          placeholder="******************"
           value={confirmPassword}
           onChangeText={setConfirmPassword}
           style={styles.input}
@@ -116,6 +119,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 26,
     fontWeight: "bold",
+    fontFamily: 'Poppins_400Regular',
   },
   profileImageContainer: {
     alignItems: "center",
@@ -125,6 +129,11 @@ const styles = StyleSheet.create({
     width: 120,
     borderRadius: 70,
     position: "relative",
+  },
+  pfp:{
+    height: 120,
+    width: 120,
+    borderRadius: 70,
   },
   editIcon: {
     position: "absolute", // Posiciona o ícone sobre o contêiner da imagem de perfil
@@ -155,6 +164,8 @@ const styles = StyleSheet.create({
     padding: 15,
     marginBottom: 25,
     fontSize: 16,
+    fontFamily: 'Poppins_400Regular',
+
   },
   checkboxContainer: {
     flexDirection: "row",
@@ -183,12 +194,15 @@ const styles = StyleSheet.create({
   },
   checkboxLabel: {
     flex: 1,
-    fontSize: 14,
+    fontSize: 12,
     color: "#686868",
+    fontFamily: 'Poppins_400Regular',
+
   },
   linkText: {
     color: "#704F38",
     textDecorationLine: 'underline',
+    
   },
   registerButton: {
     marginTop: 20,
@@ -204,10 +218,14 @@ const styles = StyleSheet.create({
     color: "#FFF",
     fontSize: 18,
     fontWeight: "400",
+    fontFamily: 'Poppins_400Regular',
+
   },
   title: {
     fontWeight: "bold",
-    marginBottom: "3%"
+    marginBottom: "3%",
+    fontFamily: 'Poppins_400Regular',
+
   },
   center: {
     justifyContent: "center",

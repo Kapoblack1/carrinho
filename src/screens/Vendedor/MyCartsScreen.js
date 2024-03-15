@@ -11,8 +11,9 @@ import {
 } from "react-native";
 import { MagnifyingGlass } from "phosphor-react-native";
 import carrinhosData from "../../mocks/mocks";
+import Header from '../../components/Header';
 
-const MyCartsScreen = () => {
+const CarrinhosScreen = () => {
 
   const handleItemPress = (item) => {
     // Ação a ser executada quando um item é pressionado
@@ -44,9 +45,7 @@ const MyCartsScreen = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Meus Carrinhos</Text>
-        </View>
+        <Header page={'Meus Carrinhos'}></Header>
         <View style={styles.contentContainer}>
           <View style={styles.searchContainer}>
             <MagnifyingGlass
@@ -79,17 +78,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    // Restante dos estilos...
-  },
-  header: {
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
-  },
-  headerText: {
-    fontSize: 24,
-    fontWeight: "300",
-    margin: 16,
   },
   searchInput: {
     height: 40,
@@ -98,6 +86,14 @@ const styles = StyleSheet.create({
     padding: 10,
     marginHorizontal: 16,
     marginBottom: 16,
+  },
+  searchInput: {
+    flex: 1,
+    padding: 10,
+    paddingRight: 10, // para garantir que o texto não sobreponha o ícone
+    height: 40,
+    fontSize: 16,
+    fontFamily: 'Poppins_400Regular',
   },
   itemContainer: {
     flexDirection: "row",
@@ -117,6 +113,8 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontSize: 18,
     marginBottom: 4,
+    fontFamily: 'Poppins_400Regular',
+
   },
   contentContainer: {
     paddingHorizontal: 20,
@@ -141,24 +139,19 @@ const styles = StyleSheet.create({
   searchIcon: {
     marginLeft: 10,
   },
-  searchInput: {
-    flex: 1,
-    padding: 10,
-    paddingRight: 10, // para garantir que o texto não sobreponha o ícone
-    height: 40,
-    fontSize: 16,
-  },
+  
   flatListContentContainer: {
     paddingBottom: 100, // Ajuste este valor conforme necessário
   },
   itemSpace: {
     paddingBottom: 3,
-    color: "#878787"
+    color: "#878787",
+    fontFamily: 'Poppins_400Regular',
+
   },
   itemTouchable: {
 
   }
-  // Adicione estilos adicionais se necessário
 });
 
-export default MyCartsScreen;
+export default CarrinhosScreen;
