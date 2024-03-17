@@ -12,6 +12,7 @@ import {
 import { MagnifyingGlass } from "phosphor-react-native";
 import carrinhosData from "../../mocks/mocks";
 import Header from '../../components/Header';
+import BottomNavigation from "../../components/BottomNavigation";
 
 const CarrinhosScreen = () => {
 
@@ -66,7 +67,8 @@ const CarrinhosScreen = () => {
             contentContainerStyle={styles.flatListContentContainer}
           />
         </View>
-      </View>
+      </View> 
+      <BottomNavigation></BottomNavigation>
     </SafeAreaView>
   );
 };
@@ -155,3 +157,5 @@ const styles = StyleSheet.create({
 });
 
 export default CarrinhosScreen;
+
+

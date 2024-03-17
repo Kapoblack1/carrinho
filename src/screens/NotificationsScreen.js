@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { BellSimple } from "phosphor-react-native";
 import Header from '../components/Header';
+import BottomNavigation from "../components/BottomNavigation";
 
 
 const NotificationScreen = () => {
@@ -71,6 +72,7 @@ const NotificationScreen = () => {
                 renderSectionHeader={renderSectionHeader}
                 contentContainerStyle={styles.listContainer}
             />
+            
         </SafeAreaView>
     );
 
@@ -148,8 +150,8 @@ const styles = StyleSheet.create({
     },
     iconContainer: {
         backgroundColor: '#E8E8E8',
-        borderRadius: 50,
-        width: '17%',
+        borderRadius: 80,
+        width: '14.5%',
         alignItems: 'center',
         alignContent: 'center',
         justifyContent: 'center',
