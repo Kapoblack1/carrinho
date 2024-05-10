@@ -49,7 +49,7 @@ const MyOrder = () => {
     vendedor: "Romeno do Rosário",
     avaliacao: 3, // Número de estrelas cheias
     totalCarrinhos: "99",
-    state: "enviado",
+    state: "progresso",
     imagemCarrinho: require("../../assets/imagens/carrinho1.png"),
     imagemVendedor: require("../../assets/imagens/james.png"),
     feito: "12/12/2023",

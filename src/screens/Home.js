@@ -14,14 +14,19 @@ import shein from '../../assets/imagens/shein.jpg';
 import zara from '../../assets/imagens/zara.jpg';
 import ali from '../../assets/imagens/shein1.webp';
 import carrinhos from '../mocks/mocks';
-
+import bottomBar from '../../assets/imagens/bottomBar.png';
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
+
+    const navigation = useNavigation();
 
     const handleItemPress = (item) => {
         // Ação a ser executada quando um item é pressionado
         // Por exemplo, navegar para uma nova tela com os detalhes do item
         console.log('Item pressionado:', item);
+        navigation.navigate('DetailsCarrinhoScreen');
+
     };
 
     const renderItem = ({ item }) => (
@@ -98,7 +103,11 @@ const Home = () => {
                 showsHorizontalScrollIndicator={false}
             />
 
+<Image source={bottomBar} style={{width: '100%', bottom: -60}}></Image>
+
+
         </ScrollView>
+
     );
 };
 
@@ -106,6 +115,8 @@ const styles = StyleSheet.create({
 
     container: {
         marginBottom: 20,
+        marginTop: 30,
+
     },
     header: {
         display: 'flex',
@@ -155,14 +166,15 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins_400Regular',
     },
     carrinhoDetails: {
-        backgroundColor: '#d7d7d7',
+        backgroundColor: '#F8F9FD',
         paddingRight: 20,
         borderTopRightRadius: 25,
         borderBottomRightRadius: 25,
         height: '100%',
+        paddingTop: 7,
     },
     imageContainer: {
-        backgroundColor: '#d7d7d7',
+        backgroundColor: '#F8F9FD',
         paddingRight: 10,
         borderTopLeftRadius: 25,
         borderBottomLeftRadius: 25

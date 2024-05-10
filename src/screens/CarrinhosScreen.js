@@ -7,7 +7,8 @@ import {
   TextInput,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  
 } from "react-native";
 import { MagnifyingGlass } from "phosphor-react-native";
 import carrinhosData from "../mocks/mocks";

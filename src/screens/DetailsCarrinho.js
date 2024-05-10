@@ -14,12 +14,15 @@ import {
 } from "react-native";
 import { PlusCircle, X, Star } from "phosphor-react-native";
 import Header from '../components/Header';
-
+import { useNavigation } from "@react-navigation/native";
 
 const DetailsCarrinhoScreen = () => {
+
+  
   // Mock data, substitua com seus dados reais conforme necessário
   const [modalVisible, setModalVisible] = useState(false);
   const [itensCarrinho, setItensCarrinho] = useState([]);
+  const navigation = useNavigation();
   const [estimativa, setEstimativa] = useState(0);
   const carrinho = {
     nome: "Vem Bem",
@@ -65,6 +68,12 @@ const DetailsCarrinhoScreen = () => {
     setItensCarrinho([...itensCarrinho, novoItem]);
     setEstimativa(estimativa + novoItem.preco);
   };
+
+  const nextPage =()=>{
+    
+    alert('O seu pedido foi aceite con sucesso');
+    navigation.navigate("Home")
+  }
 
   const removerItem = (id) => {
     const itensFiltrados = itensCarrinho.filter((item) => item.id !== id);
@@ -224,7 +233,7 @@ const DetailsCarrinhoScreen = () => {
               {estimativa.toFixed(2)} AOA
             </Text>
           </View>
-          <TouchableOpacity style={styles.orderButton}>
+          <TouchableOpacity style={styles.orderButton} onPress={nextPage}>
             <Text style={styles.orderButtonText}>Fazer Pedido</Text>
           </TouchableOpacity>
         </View>

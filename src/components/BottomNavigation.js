@@ -9,9 +9,9 @@ const BottomNavigation = () => {
   const iconPositions = {
     0: "-10%",
     1: "77%",
-    2: "164",
-    3: "250",
-    4: "336", // Adicionando uma posição para o ícone de usuário
+    2: "164%",
+    3: "250%",
+    4: "336%", // Adicionando uma posição para o ícone de usuário
   };
 
   const onPress = (index) => {

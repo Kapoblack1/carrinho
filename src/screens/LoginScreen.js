@@ -6,15 +6,22 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
+  Image
 } from "react-native";
-
+import logo from "../../assets/imagens/logo.png"
+import { useNavigation } from "@react-navigation/native";
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigation = useNavigation();
+
+  
   const handleLogin = () => {
     // Implement login logic here
     console.log("Login Pressed", { email, password });
+    navigation.navigate('Home');
+
   };
 
   return (
@@ -26,7 +33,9 @@ const LoginScreen = () => {
         <Text style={styles.headerText}>Login</Text>
       </View>
       <View style={styles.logoContaier}>
-        <View style={styles.logo}></View>
+        <View >
+            <Image style={styles.logo} source={logo}></Image>
+        </View>
       </View>
 
       <View style={styles.inputFieldContainer}>
@@ -143,9 +152,8 @@ const styles = StyleSheet.create({
 
   },
   logo: {
-    height: 100,
-    width: 100,
-    backgroundColor: "#E8E8E8",
+    height: 200,
+    width: 200,
   },
   logoContaier: {
     justifyContent: "center",

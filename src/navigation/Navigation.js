@@ -25,7 +25,7 @@ export default function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="MyCartsScreen"
+        initialRouteName="LoginScreen"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
