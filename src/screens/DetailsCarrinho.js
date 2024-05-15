@@ -13,22 +13,21 @@ import {
   ScrollView,
 } from "react-native";
 import { PlusCircle, X, Star } from "phosphor-react-native";
-import Header from '../components/Header';
+import Header from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
 const DetailsCarrinhoScreen = () => {
-
-  
   // Mock data, substitua com seus dados reais conforme necessário
   const [modalVisible, setModalVisible] = useState(false);
   const [itensCarrinho, setItensCarrinho] = useState([]);
   const navigation = useNavigation();
   const [estimativa, setEstimativa] = useState(0);
+  const [preco, setPreco] = useState(0);
   const carrinho = {
     nome: "Vem Bem",
     abertura: "12/12/2023",
     fecho: "12/12/2023",
-    cambio: "899Kz",
+    cambio: 899,
     descricao:
       "Carrinho de natal, todos os produtos chegam 1 semana antes do natal, aproveita.",
     vendedor: "Romeno do Rosário",
@@ -63,17 +62,17 @@ const DetailsCarrinhoScreen = () => {
     const novoItem = {
       id: String(itensCarrinho.length + 1),
       nome: "Item 1",
-      preco: 18.99,
+      preco: preco * carrinho.cambio,
     };
+    setModalVisible(!modalVisible);
     setItensCarrinho([...itensCarrinho, novoItem]);
     setEstimativa(estimativa + novoItem.preco);
   };
 
-  const nextPage =()=>{
-    
-    alert('O seu pedido foi aceite con sucesso');
-    navigation.navigate("Home")
-  }
+  const nextPage = () => {
+    alert("O seu pedido foi aceite con sucesso");
+    navigation.navigate("Home");
+  };
 
   const removerItem = (id) => {
     const itensFiltrados = itensCarrinho.filter((item) => item.id !== id);
@@ -82,14 +81,14 @@ const DetailsCarrinhoScreen = () => {
   };
 
   const calcularEstimativa = (itens) => {
-    const total = itens.reduce((soma, item) => soma + item.preco * 899, 0);
+    const total = itens.reduce((soma, item) => soma + item.preco, 0);
     setEstimativa(total);
   };
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.scrollViewStyle}>
         <View style={styles.container}>
-          <Header page={'Carrinho Shein'}></Header>
+          <Header page={"Carrinho Shein"}></Header>
           <View style={styles.itemContainer}>
             <Image
               source={carrinho.imagemCarrinho}
@@ -128,7 +127,6 @@ const DetailsCarrinhoScreen = () => {
                 {renderStars(carrinho.avaliacao)}
               </View>
             </View>
-
           </View>
           <Text style={styles.sectionTitle}>Faça o seu pedido</Text>
           <Modal
@@ -159,7 +157,13 @@ const DetailsCarrinhoScreen = () => {
                     />
 
                     <Text style={styles.inputLabel}>Preço</Text>
-                    <TextInput style={styles.input} defaultValue="18.99" />
+                    <TextInput
+                      style={styles.input}
+                      placeholder="18.99"
+                      placeholderTextColor={"#878787"}
+                      value={preco}
+                      onChangeText={setPreco}
+                    />
 
                     <TouchableOpacity
                       style={styles.addButton2}
@@ -189,7 +193,7 @@ const DetailsCarrinhoScreen = () => {
                       placeholder="Adicione especificações sobre o pedido (cor, tamanho, quantidade) se achar necessário."
                       numberOfLines={4}
                       blurOnSubmit={true} // Adiciona esta linha
-                      onSubmitEditing={() => { }} // Adicione esta linha para esconder o teclado
+                      onSubmitEditing={() => {}} // Adicione esta linha para esconder o teclado
                     />
 
                     <TouchableOpacity
@@ -278,7 +282,7 @@ const styles = StyleSheet.create({
   itemSpace: {
     paddingBottom: 3,
     color: "#878787",
-    fontFamily: 'Poppins_400Regular',
+    fontFamily: "Poppins_400Regular",
   },
   itemImage: {
     width: 100,
@@ -293,15 +297,14 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontSize: 18,
     marginBottom: 4,
-    fontFamily: 'Poppins_400Regular',
+    fontFamily: "Poppins_400Regular",
   },
   sectionTitle: {
     fontWeight: "bold",
     fontSize: 18,
     marginTop: 20,
     marginLeft: 20,
-    fontFamily: 'Poppins_500Medium',
-
+    fontFamily: "Poppins_500Medium",
   },
   descriptionContainer: {
     marginTop: 30,
@@ -318,8 +321,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 15,
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
   vendedorInfo: {
     flexDirection: "row",
@@ -334,19 +336,16 @@ const styles = StyleSheet.create({
   },
   vendedorDetails: {
     marginLeft: 10,
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
   vendedorName: {
     fontWeight: "bold",
     fontSize: 18,
-    fontFamily: 'Poppins_600SemiBold',
-
+    fontFamily: "Poppins_600SemiBold",
   },
   totalCarrinhos: {
     fontSize: 16,
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
   starsContainer: {
     flexDirection: "row",
@@ -368,13 +367,11 @@ const styles = StyleSheet.create({
 
   addButtonText1: {
     fontSize: 18,
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
   addButtonText2: {
     fontSize: 16,
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
 
   orderButton: {
@@ -398,8 +395,7 @@ const styles = StyleSheet.create({
   orderButtonText: {
     color: "#FFF",
     fontSize: 18,
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
   centeredView: {
     flex: 1,
@@ -408,7 +404,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.6)",
   },
   scroll: {
-    width: "100%"
+    width: "100%",
   },
   modalView: {
     margin: 20,
@@ -437,8 +433,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: 18,
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
   closeButton: {
     padding: 10, // Para aumentar a área de toque
@@ -449,8 +444,7 @@ const styles = StyleSheet.create({
   inputLabel: {
     fontSize: 16,
     marginTop: 25,
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
   input: {
     width: "100%",
@@ -463,8 +457,7 @@ const styles = StyleSheet.create({
   descriptionInput: {
     textAlignVertical: "top", // Para alinhar o texto no topo no Android
     height: 140,
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
   foto: {
     width: 100,
@@ -484,8 +477,7 @@ const styles = StyleSheet.create({
   addButtonText: {
     fontSize: 18,
     color: "white",
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
   openModalButton: {
     // Estilos para o botão que abre o modal
@@ -507,8 +499,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     color: "#704F38", // Cor do texto para o nome do item
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
   row: {
     flexDirection: "row",
@@ -518,8 +509,7 @@ const styles = StyleSheet.create({
   itemPreco: {
     fontSize: 16,
     color: "#704F38", // Cor do texto para o preço do item
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
   removerItem: {
     padding: 8, // Para aumentar a área de toque
@@ -537,15 +527,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     color: "#333", // Cor do texto para "Estimativa"
-    fontFamily: 'Poppins_600SemiBold',
-
+    fontFamily: "Poppins_600SemiBold",
   },
   estimativaValor: {
     fontSize: 16,
     fontWeight: "bold",
     color: "#333", // Cor do texto para o valor da estimativa
-    fontFamily: 'Poppins_600SemiBold',
-
+    fontFamily: "Poppins_600SemiBold",
   },
   orderButton: {
     backgroundColor: "#704F38", // Cor do botão para fazer pedido
@@ -559,8 +547,7 @@ const styles = StyleSheet.create({
     color: "#FFF",
     fontSize: 18,
     fontWeight: "bold",
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
 });
 

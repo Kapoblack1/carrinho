@@ -14,8 +14,8 @@ import { MagnifyingGlass } from "phosphor-react-native";
 import carrinhosData from "../mocks/mocks";
 import Header from '../components/Header';
 
-const CarrinhosScreen = () => {
-
+const CarrinhosScreen = ({route}) => {
+  const { namePage } = route.params;
   const handleItemPress = (item) => {
     // Ação a ser executada quando um item é pressionado
     // Por exemplo, navegar para uma nova tela com os detalhes do item
@@ -46,7 +46,7 @@ const CarrinhosScreen = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-        <Header page={'Carrinhos Shein'}></Header>
+        <Header page={namePage}></Header>
         <View style={styles.contentContainer}>
           <View style={styles.searchContainer}>
             <MagnifyingGlass

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { View, Text, TouchableOpacity, Animated, StyleSheet, Dimensions, FlatList, Image, imageSource } from 'react-native';
 import { Upload, Eye } from 'phosphor-react-native';
 import Header from '../components/Header';
-
+import { useNavigation } from "@react-navigation/native";
 
 
 const mockData = [
@@ -71,9 +71,17 @@ const mockData = [
 
 const OrderScreen = () => {
 
+  const navigation = useNavigation();
+
   const [selectedTab, setSelectedTab] = useState('Ativos');
   const [activeTab, setActiveTab] = useState('Ativos');
 
+  const handleItemPress = (item) => {
+    // Ação a ser executada quando um item é pressionado
+    // Por exemplo, navegar para uma nova tela com os detalhes do item
+    console.log("Item pressionado:", item);
+    navigation.navigate("MyOrder");
+  };
 
   const renderOrderItem = ({ item }) => {
     return (
@@ -96,7 +104,7 @@ const OrderScreen = () => {
               <Upload size={20} color="#FFF" />
             </TouchableOpacity>
           ) : (
-            <TouchableOpacity style={styles.actionButton}>
+            <TouchableOpacity style={styles.actionButton}  onPress={() => handleItemPress()}>
               <Text style={styles.actionTitle}>Seguir pedido</Text>
             </TouchableOpacity>
           )}
@@ -171,7 +179,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingHorizontal: "2.2%",
-    marginTop: 20,
+    paddingTop: 40,
   },
   header: {
     fontSize: 22,

@@ -18,12 +18,23 @@ import {
   User,
   CaretRight,
 } from "phosphor-react-native";
+import {
+  CaretLeft,
+  House,
+  ShoppingCartSimple,
+  ShoppingBagOpen,
+  Bell,
+} from "phosphor-react-native";
 import { Check, PencilSimpleLine } from "phosphor-react-native";
 const profileImageUrl = require("../../assets/imagens/james.png");
-import Header from '../components/Header';
-
+import Header from "../components/Header";
+import { useNavigation } from "@react-navigation/native";
 const ProfileScreen = () => {
+  const navigation = useNavigation();
 
+  function navegar(pagina) {
+    navigation.navigate(pagina);
+  }
   return (
     <SafeAreaView style={styles.container}>
       <Header page="Perfil"></Header>
@@ -42,34 +53,76 @@ const ProfileScreen = () => {
         <View style={styles.menuSection}>
           <MenuItem icon={User} text="Detalhes" style={styles.icon} />
           <MenuItem icon={Gear} text="Definições" style={styles.icon} />
-          <MenuItem icon={Question} text="Centro de Ajuda" style={styles.icon} />
+          <MenuItem
+            icon={Question}
+            text="Centro de Ajuda"
+            style={styles.icon}
+          />
           <MenuItem
             icon={FileText}
             text="Política de Privacidade"
             style={styles.icon}
           />
-          <MenuItem icon={UserPlus} text="Convidar amigos" style={styles.icon} />
+          <MenuItem
+            icon={UserPlus}
+            text="Convidar amigos"
+            style={styles.icon}
+          />
           <MenuItem icon={SignOut} text="Logout" style={styles.icon} />
         </View>
-
       </ScrollView>
+
+      <View style={styles.containerBottomBar}>
+        <TouchableOpacity onPress={() => navegar("Home")}>
+          <House size={35} color="#704F38" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navegar("CarrinhosScreen")}>
+          <ShoppingCartSimple size={35} color="#704F38" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navegar("OrderScreen")}>
+          <ShoppingBagOpen size={35} color="#704F38" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navegar("NotificationsScreen")}>
+          <Bell size={35} color="#704F38" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navegar("ProfileScreen")}>
+          <User weight="fill" size={35} color="#704F38" />
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
 
+const MenuItem = ({ icon: Icon, text }) => {
+  const navigation = useNavigation();
 
-const MenuItem = ({ icon: Icon, text }) => (
-  <TouchableOpacity style={styles.menuItem}>
-    <Icon size={28} color="#704F38" />
-    <Text style={styles.menuItemText}>{text}</Text>
-    <CaretRight size={24} color="#704F38" style={styles.menuItemIcon} />
-  </TouchableOpacity>
-);
+  return (
+    <TouchableOpacity
+      style={styles.menuItem}
+      onPress={() => navigation.navigate("LoginScreen")}
+    >
+      <Icon size={28} color="#704F38" />
+      <Text style={styles.menuItemText}>{text}</Text>
+      <CaretRight size={24} color="#704F38" style={styles.menuItemIcon} />
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FFF",
+  },
+  containerBottomBar: {
+    width: "100%",
+    height: "10%",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: "3%",
+    backgroundColor: "white",
+    bottom: -25,
   },
   header: {
     alignItems: "center",
@@ -92,13 +145,11 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     marginVertical: 10,
-    fontFamily: 'Poppins_400Regular',
-
+    fontFamily: "Poppins_400Regular",
   },
   menuSection: {
     marginTop: 20,
-    marginBottom:20,
-
+    marginBottom: 20,
   },
   menuItem: {
     flexDirection: "row",
@@ -107,13 +158,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: "4%",
     borderBottomWidth: 1,
     borderBottomColor: "#EAEAEA",
-    justifyContent: 'space-between', // Adiciona espaço entre o texto e a seta
+    justifyContent: "space-between", // Adiciona espaço entre o texto e a seta
   },
   menuItemText: {
     fontSize: 18,
     marginLeft: 15,
     flex: 1, // Faz com que o texto ocupe todo o espaço disponível
-    fontFamily: 'Poppins_400Regular',
+    fontFamily: "Poppins_400Regular",
   },
   profileImageContainer: {
     alignItems: "center",
@@ -146,7 +197,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   icon: {
-    fontSize: 16
+    fontSize: 16,
   },
 });
 

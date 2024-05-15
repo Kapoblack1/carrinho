@@ -18,6 +18,7 @@ import CreateCartScreen from '../screens/Vendedor/CreateCartScreen';
 import MyCartsScreen from '../screens/Vendedor/MyCartsScreen';
 import OrdersScreen from '../screens/Vendedor/OrdersScreen';
 import Home from '../screens/Home'
+import AllCarrinhosScreen from '../screens/AllCarrinhosScreen';
 
 const Stack = createStackNavigator();
 
@@ -44,6 +45,7 @@ export default function Navigation() {
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="Carrinhos" component={Carrinhos} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="AllCarrinhosScreen" component={AllCarrinhosScreen} />
 
       </Stack.Navigator>
     </NavigationContainer>
